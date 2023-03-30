@@ -29,4 +29,29 @@ public class Subdivision
     {
         return this.houses.size();
     }
+
+    public House find(String style) {
+    	for(int i = 0; i < houses.size(); i++)
+    	{
+    		if(houses.get(i).getStyle() == style)
+    		{
+    			return houses.get(i);
+    		}
+    	}
+    	return null;
+    }
+    
+    public java.util.ArrayList<House> listByArea​(double floor, double ceiling){
+        ArrayList<House> output = new ArrayList<>();
+        
+        int i = 0;
+        
+        while(i < houses.size()){
+            if((floor <= houses.get(i).getTotalArea()) && (houses.get(i).getTotalArea()<= ceiling)) {
+                output.add(houses.get(i));
+            }
+            i++;
+        }
+        return output;
+    }
 }
