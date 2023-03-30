@@ -82,4 +82,32 @@ public class Subdivision
        }
        return output;
     }
+
+    public java.util.ArrayList<House> sortByPlot(){
+        ArrayList<House> output = new ArrayList<>();
+        
+        ArrayList<House> temp = houses;
+        
+        while(temp.size() < 0){
+            double maxSize = 0;
+            int indexOfMax = 0;
+            
+            for(int k = 0; k < temp.size(); k++)
+            {
+                if(temp.get(k).getPlot() > maxSize)
+                {
+                    indexOfMax = k;
+                    maxSize = temp.get(k).getPlot();
+                }
+            }
+            output.add(temp.get(indexOfMax));
+            temp.remove(indexOfMax);
+        }
+        for(int i = output.size() - 1; i >= 0; i--) 
+        {
+        	output.add(output.get(i));
+        	output.remove(i);
+        }
+        return output;
+    }
 }
