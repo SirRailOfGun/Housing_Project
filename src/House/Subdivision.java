@@ -54,4 +54,32 @@ public class Subdivision
         }
         return output;
     }
+
+    public java.util.ArrayList<House> listByPlot(double floor, double ceiling){
+       ArrayList<House> output = new ArrayList<>();
+       
+       int i = 0;
+       
+       while(i < houses.size()){
+       if((floor <= houses.get(i).getPlot()) && (houses.get(i).getPlot()<= ceiling)) {
+           output.add(houses.get(i));
+       }
+       i++;
+       }
+       return output;
+    }
+
+    public java.util.ArrayList<House> listByBedrooms​(double floor, double ceiling){
+       ArrayList<House> output = new ArrayList<>();
+       
+       int i = 0;
+       
+       while(i < houses.size()){
+       if((floor <= houses.get(i).getBedrooms()) && (houses.get(i).getBedrooms()<= ceiling)) {
+           output.add(houses.get(i));
+       }
+       i++;
+       }
+       return output;
+    }
 }
