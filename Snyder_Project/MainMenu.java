@@ -1,10 +1,11 @@
 package Snyder_Project;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainMenu {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		Scanner input = new Scanner(System.in);
 		int OPTIONCOUNT = 10;
@@ -18,6 +19,8 @@ public class MainMenu {
 
 		// Create an instance of the subDivision class
 		// and load the records from the text file
+		Subdivision neighborhood = new Subdivision();
+		neighborhood.fromDisk();
 
 		do {
 			for (int x = 0; x < OPTIONCOUNT; x++) {
@@ -29,16 +32,30 @@ public class MainMenu {
 			switch (option) {
 			case 1:
 				System.out.println("Show all Houses ");
+				showSubdivision(neighborhood.list());
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
 			case 2:
 				System.out.println("Add a House ");
+				House house = new House();
+				System.out.println("Give the Style");
+				house.houseStyle = input.next();
+				System.out.println("Give the Family Room Size");
+				house.famroomSize = input.nextDouble();
+				System.out.println("Give the Living Room Size");
+				house.livroomSize = input.nextDouble();
+				System.out.println("Give the number of Bedrooms");
+				house.bedrooms = input.nextInt();
+				System.out.println("Give the amount of acres");
+				house.acres = input.nextDouble();
+				neighborhood.add(house);
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
 			case 3:
 				System.out.println("Remove a House ");
+				neighborhood.remove(option);
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
@@ -81,11 +98,8 @@ public class MainMenu {
 	}
 
 	private static void showSubdivision(ArrayList<House> subDivisionToShow) {
-		Subdivision display = new Subdivision();
-		display.list();
-		display.listByArea​(0, 0);
-		display.listByPlot(0, 0);
-		display.sortByArea();
-		display.sortByPlot();
+		for(House display:subDivisionToShow) {
+			System.out.println(display.toString());
+		}
 	}
 }
