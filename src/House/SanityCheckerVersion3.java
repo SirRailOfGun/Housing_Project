@@ -2,8 +2,7 @@ package House;
 
 import java.util.ArrayList;
 
-public class SanityCheckerVersion2 {
-
+public class SanityCheckerVersion3 {
 	/*
 	 * Put this class in your Project's src folder. It must compile to score better
 	 * than a D on the project.
@@ -35,5 +34,4 @@ public class SanityCheckerVersion2 {
 		ArrayList<House> al = sd.list();
 		a = sd.size();
 	}
-
 }

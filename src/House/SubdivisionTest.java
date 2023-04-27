@@ -1,7 +1,6 @@
 package House;
 
-public class SubdivisionTester {
-
+public class SubdivisionTest {
 	public static void main(String[] args) {
 		House h1 = new House();
 		h1.setBedrooms(3);
@@ -24,5 +23,4 @@ public class SubdivisionTester {
 		
 		System.out.println(subdivision.toString());
 	}
-
 }
