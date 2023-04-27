@@ -1,12 +1,10 @@
 package House;
 
 public class houseTester {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String []args){
 	    //test the constructors
-		House house1 = new House("Colonial", 700.0, 500.0, 3, 2100.0);
-		House house2 = new House();
+	    House house1 = new House("Colonial", 700.0, 500.0, 3, 2100.0);
+	    House house2 = new House();
 	    
 	    //test the getters
 	    System.out.println(house1.getBedrooms());
@@ -30,7 +28,5 @@ public class houseTester {
 	    
 	    //test compareArea
 	    System.out.println(house1.compareArea(house2));
-
-	}
-
+	    }
 }

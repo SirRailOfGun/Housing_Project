@@ -12,7 +12,7 @@ public class House {
         this.bedrooms = 0;
         this.famroomSize = 0;
         this.livroomSize = 0;
-        this.houseStyle = "Unfinished";
+        this.houseStyle = "Unfinished"; //could also assign this the value of "" or "unbuilt"
         this.acres = 0;
     }
 
@@ -52,11 +52,14 @@ public class House {
     
     public String toString()
     {
-    	return "House style = " + this.houseStyle + 
-    			"\nBedrooms = " + this.bedrooms + 
-    			"\nFamily room area = " + this.famroomSize + "\'" +
-    			"\nLiving room area = " + this.livroomSize + "\'" +
-    			"\nPlot = " + this.acres +
-    			"\nSquare feet = " + this.getTotalArea() + "\'";
+        return "House style = " + this.houseStyle + 
+                "\nBedrooms = " + this.bedrooms + 
+                "\nFamily room area = " + this.famroomSize + "\'" +
+                "\nLiving room area = " + this.livroomSize + "\'" +
+                "\nPlot = " + this.acres +
+                "\nSquare feet = " + this.getTotalArea() + "\'";
     }
 }
+
+
+
