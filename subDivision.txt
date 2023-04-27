@@ -1,0 +1,31 @@
+[House style = ranch
+Bedrooms = 3
+Family room area = 200.0'
+Living room area = 200.0'
+Plot = 5000.0
+Square feet = 1300.0', House style = oneacre
+Bedrooms = 1
+Family room area = 100.0'
+Living room area = 120.0'
+Plot = 43560.0
+Square feet = 520.0', House style = small ranch
+Bedrooms = 2
+Family room area = 100.0'
+Living room area = 100.0'
+Plot = 5000.0
+Square feet = 800.0', House style = verysmall1
+Bedrooms = 1
+Family room area = 10.0'
+Living room area = 10.0'
+Plot = 500.0
+Square feet = 320.0', House style = verysmall2
+Bedrooms = 1
+Family room area = 10.0'
+Living room area = 10.0'
+Plot = 500.0
+Square feet = 320.0', House style = mansion
+Bedrooms = 7
+Family room area = 1000.0'
+Living room area = 2010.0'
+Plot = 50000.0
+Square feet = 5110.0']
