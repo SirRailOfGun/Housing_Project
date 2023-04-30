@@ -78,16 +78,19 @@ public class MainMenu {
 				break;
 			case 7:
 				System.out.println("Sort by Total Area (Smallest to Biggest");
+				neighborhood.sortByArea();
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
 			case 8:
 				System.out.println("Sort by Plot Size (Smallest to Biggest");
+				neighborhood.sortByPlot();
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
 			case 9:
 				System.out.println("Write subdivision to disk");
+				neighborhood.toDisk();
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;

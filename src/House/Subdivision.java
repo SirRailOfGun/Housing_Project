@@ -107,7 +107,7 @@ public class Subdivision
         return output;
     }
 
-    public java.util.ArrayList<House> sortByPlot()
+    public  java.util.ArrayList<House> sortByPlot()
     {
         ArrayList<House> output = new ArrayList<>();
 
