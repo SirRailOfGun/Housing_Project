@@ -6,10 +6,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 public class Subdivision 
 {
-	private ArrayList<House> houses = new ArrayList<>();
+	private ArrayList<House> houses;
 	
 	Subdivision()
-	{ }
+	{
+		houses = new ArrayList<>();
+	}
 	public House get(int i) 
 	{
 		return houses.get(i);
@@ -30,7 +32,7 @@ public class Subdivision
     public House find(String style) {
     	for(int i = 0; i < houses.size(); i++)
     	{
-    		if(houses.get(i).getStyle() == style)
+    		if(houses.get(i).getStyle().equals(style))
     		{
     			return houses.get(i);
     		}
@@ -82,9 +84,9 @@ public class Subdivision
     {
         ArrayList<House> output = new ArrayList<>();
 
-        ArrayList<House> temp = houses;
+        ArrayList<House> temp = new ArrayList<House>(houses);
 
-        while(temp.size() < 0){
+        while(temp.size() > 0){
             double maxSize = 0;
             int indexOfMax = 0;
 
@@ -109,11 +111,11 @@ public class Subdivision
 
     public  java.util.ArrayList<House> sortByPlot()
     {
-        ArrayList<House> output = new ArrayList<>();
+        ArrayList<House> output = new ArrayList<House>();
 
-        ArrayList<House> temp = houses;
+        ArrayList<House> temp = new ArrayList<House>(houses);
         
-        while(temp.size() < 0){
+        while(temp.size() > 0){
             double maxSize = 0;
             int indexOfMax = 0;
             
