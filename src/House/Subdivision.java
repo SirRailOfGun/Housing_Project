@@ -162,17 +162,28 @@ public class Subdivision
      * 
      * Reads the subDivision.txt file
      */
-    public boolean fromDisk() throws java.io.IOException{
-    	FileInputStream inputStream = new FileInputStream("subDivision.txt");
-    	BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-    	
-    	String stringLine;
-    	
-    	while((stringLine = br.readLine()) != null) {
-    		System.out.println(stringLine);
+    public boolean fromDisk() throws java.io.IOException
+    {
+    	java.io.File file = new java.io.File("subDivision.txt");
+
+    	if(file.exists()) 
+    	{
+	    	FileInputStream inputStream = new FileInputStream("subDivision.txt");
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+	    	String stringLine;
+	
+	    	while((stringLine = br.readLine()) != null) 
+	    	{
+	    		String[] parse = stringLine.split(",");
+	    		House loadHouse = new House(parse[0], Double.parseDouble(parse[1]), Double.parseDouble(parse[2]), Integer.parseInt(parse[3]), Double.parseDouble(parse[4]));
+//	    		System.out.println(stringLine);
+	    	}
+	    	return true;
     	}
-    	br.close();
-    	return true;
+    	else 
+    	{
+    		return false;
+    	}
     }
     /*
      * @Robert
