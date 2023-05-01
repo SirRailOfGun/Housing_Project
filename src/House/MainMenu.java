@@ -1,11 +1,10 @@
 package House;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainMenu {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args){
 
 		Scanner input = new Scanner(System.in);
 		int OPTIONCOUNT = 10;

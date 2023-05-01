@@ -2,8 +2,10 @@ package House;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
 public class Subdivision 
 {
 	private ArrayList<House> houses;
@@ -140,48 +142,70 @@ public class Subdivision
     /*
      * @Robert
      * 
-     * Writes to the subDivision.txt file
+     * Writes to the src/House/subDivision.txt file
      */
-    public boolean toDisk() throws java.io.IOException{
-    	java.io.File file = new java.io.File("subDivision.txt");
-    	if(file.exists()) {
-    		System.out.println("File already exists");
-    		return false;
-    	}
-    	else {
-    	java.io.PrintWriter output = new java.io.PrintWriter(file);
-    	
-    	output.print(this.houses);
-    	output.close();
-		return true;
-    	}
+    public boolean toDisk()
+    {
+    	try 
+    	{
+    		java.io.File file = new java.io.File("src/House/subDivision.txt");
+			java.io.PrintWriter output = new java.io.PrintWriter(file);
+			
+//			output.print(this.houses);
+			for(House i:this.houses)
+			{
+				output.print(i.getStyle());
+				output.print(",");
+				output.print(i.getFamilyRoomArea());
+				output.print(",");
+				output.print(i.getLivingRoomArea());
+				output.print(",");
+				output.print(i.getBedrooms());
+				output.print(",");
+				output.print(i.getPlot());
+				output.print("\n");
+			}
+			output.close();
+			return true;
+		} 
+    	catch (java.io.IOException e) 
+    	{
+			return false;
+		}
 
     }
     /*
      * @Robert
      * 
-     * Reads the subDivision.txt file
+     * Reads the src/House/subDivision.txt file
      */
-    public boolean fromDisk() throws java.io.IOException
+    public boolean fromDisk()
     {
-    	java.io.File file = new java.io.File("subDivision.txt");
-
-    	if(file.exists()) 
+    	try
     	{
-	    	FileInputStream inputStream = new FileInputStream("subDivision.txt");
+	    	FileInputStream inputStream = new FileInputStream("src/House/subDivision.txt");
 	    	BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 	    	String stringLine;
 	
+	    	int count = 0;
 	    	while((stringLine = br.readLine()) != null) 
 	    	{
-	    		String[] parse = stringLine.split(",");
-	    		House loadHouse = new House(parse[0], Double.parseDouble(parse[1]), Double.parseDouble(parse[2]), Integer.parseInt(parse[3]), Double.parseDouble(parse[4]));
 //	    		System.out.println(stringLine);
+	    		String[] parse = stringLine.split(",");
+	    		if(parse.length > 1) 
+	    		{
+		    		House loadHouse = new House(parse[0], Double.parseDouble(parse[1]), Double.parseDouble(parse[2]), Integer.parseInt(parse[3]), Double.parseDouble(parse[4]));
+//		    		System.out.println(loadHouse);
+		    		this.add(loadHouse);
+	    		}
+	    		count ++;
 	    	}
+	    	br.close();
 	    	return true;
     	}
-    	else 
+    	catch (IOException e)
     	{
+    		System.out.println("no file loaded");
     		return false;
     	}
     }
