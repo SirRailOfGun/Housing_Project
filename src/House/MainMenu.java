@@ -38,18 +38,7 @@ public class MainMenu {
 				break;
 			case 2:
 				System.out.println("Add a House ");
-				House house = new House();
-				System.out.println("Give the Style");
-				house.houseStyle = input.next();
-				System.out.println("Give the Family Room Size");
-				house.famroomSize = input.nextDouble();
-				System.out.println("Give the Living Room Size");
-				house.livroomSize = input.nextDouble();
-				System.out.println("Give the number of Bedrooms");
-				house.bedrooms = input.nextInt();
-				System.out.println("Give the amount of acres");
-				house.acres = input.nextDouble();
-				neighborhood.add(house);
+				neighborhood.add(houseInput(input));
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
@@ -63,16 +52,29 @@ public class MainMenu {
 				break;
 			case 4:
 				System.out.println("Change a House ");
+				System.out.println("Enter the position of the house you want to change");
+				int houseToEdit = input.nextInt();
+				neighborhood.update(houseToEdit, houseInput(input));
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
 			case 5:
 				System.out.println("Filter Total Area (Inclusive)");
+				System.out.println("Enter the lower bound for area");
+				int start = input.nextInt();
+				System.out.println("Enter the upper bound for area");
+				int end = input.nextInt();
+				showSubdivision(neighborhood.listByArea​(start, end));
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
 			case 6:
 				System.out.println("Filter by Plot Size (Inclusive)");
+				System.out.println("Enter the lower bound for plot size");
+				start = input.nextInt();
+				System.out.println("Enter the upper bound for plot size");
+				end = input.nextInt();
+				showSubdivision(neighborhood.listByArea​(start, end));
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
@@ -106,5 +108,20 @@ public class MainMenu {
 		for(House display:subDivisionToShow) {
 			System.out.println(display.toString());
 		}
+	}
+	private static House houseInput(Scanner input)
+	{
+		House house = new House();
+		System.out.println("Give the Style");
+		house.houseStyle = input.next();
+		System.out.println("Give the Family Room Size");
+		house.famroomSize = input.nextDouble();
+		System.out.println("Give the Living Room Size");
+		house.livroomSize = input.nextDouble();
+		System.out.println("Give the number of Bedrooms");
+		house.bedrooms = input.nextInt();
+		System.out.println("Give the amount of acres");
+		house.acres = input.nextDouble();
+		return house;
 	}
 }
