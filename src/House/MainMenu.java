@@ -78,13 +78,13 @@ public class MainMenu {
 				break;
 			case 7:
 				System.out.println("Sort by Total Area (Smallest to Biggest");
-				neighborhood.sortByArea();
+				showSubdivision(neighborhood.sortByArea());
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
 			case 8:
 				System.out.println("Sort by Plot Size (Smallest to Biggest");
-				neighborhood.sortByPlot();
+				showSubdivision(neighborhood.sortByPlot());
 				System.out.println("Press any key and then enter to continue");
 				input.next();
 				break;
